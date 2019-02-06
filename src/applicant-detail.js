@@ -3,11 +3,18 @@ const position = document.getElementById('position');
 const allergy = document.getElementById('allergy');
 const tiger = document.getElementById('tiger');
 
-const json = window.localStorage.getItem('applicant');
-const hydratedApplicant = JSON.parse(json);
-console.log(hydratedApplicant);
+const jsonString = window.localStorage.getItem('applicants');
 
-name.textContent = hydratedApplicant.name;
-position.textContent = hydratedApplicant.position;
-allergy.textContent = hydratedApplicant.allergy;
-tiger.textContent = hydratedApplicant.tigerName.join(' ');
+let applicant = null;
+if(jsonString) {
+    const applicants = JSON.parse(jsonString);
+    applicant = applicants[0];
+}
+else {
+    window.location = '/';
+}
+
+name.textContent = applicant.name;
+position.textContent = applicant.position;
+allergy.textContent = applicant.allergy;
+tiger.textContent = applicant.tigerName.join(' ');
