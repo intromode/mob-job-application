@@ -8,7 +8,7 @@ const jsonString = window.localStorage.getItem('applicants');
 let applicant = null;
 if(jsonString) {
     const applicants = JSON.parse(jsonString);
-    applicant = applicants[0];
+    applicant = applicants[applicants.length - 1];
 }
 else {
     window.location = '/';
