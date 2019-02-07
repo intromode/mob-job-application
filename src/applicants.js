@@ -14,8 +14,12 @@ for(let index = 0; index < applicants.length; index++) {
 
     const tdName = document.createElement('td');
     tr.appendChild(tdName);
-    tdName.textContent = applicant.name;
-    
+    const nameLink = document.createElement('a');
+    tdName.appendChild(nameLink);
+    nameLink.textContent = applicant.name;
+    nameLink.href = 'applicant-detail.html?name=' + encodeURIComponent(applicant.name);
+
+
     const tdPosition = document.createElement('td');
     tr.appendChild(tdPosition);
     tdPosition.textContent = applicant.position;

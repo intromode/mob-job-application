@@ -6,12 +6,26 @@ const tiger = document.getElementById('tiger');
 const jsonString = window.localStorage.getItem('applicants');
 
 let applicant = null;
+let applicants = [];
+
 if(jsonString) {
-    const applicants = JSON.parse(jsonString);
-    applicant = applicants[applicants.length - 1];
+    applicants = JSON.parse(jsonString);
 }
 else {
     window.location = '/';
+}
+
+const searchParam = new URLSearchParams(window.location.search);//allows us to use those methods on the query string
+const nameToFind = searchParam.get('name');
+console.log(nameToFind);
+
+//needed applicants to be = [] instead of just a var because we need length
+for(let index = 0; index < applicants.length; index++) {
+    let currentApplicant = applicants[index];
+    if(currentApplicant.name === nameToFind) {
+        applicant = currentApplicant;
+        break; //otherwise once we find the name we want, we will keep looping  
+    }
 }
 
 name.textContent = applicant.name;
