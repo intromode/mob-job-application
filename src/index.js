@@ -43,7 +43,7 @@ circusForm.addEventListener('submit', function(event) {
     const serialize = JSON.stringify(applicants); //must stringify to then set it
     window.localStorage.setItem('applicants', serialize); //set it
 
-    // window.location = 'thanks.html';
+    window.location = 'thanks.html';
 });
 
 

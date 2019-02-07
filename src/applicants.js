@@ -26,8 +26,5 @@ for(let index = 0; index < applicants.length; index++) {
 
     const tdTiger = document.createElement('td');
     tr.appendChild(tdTiger);
-    tdTiger.textContent = applicant.tigerName.join(' ');
-
-
-
+    tdTiger.textContent = applicant.tigerName;
 }
